@@ -1,5 +1,2 @@
-require "blogdoor/version"
-
-module Blogdoor
-  # Your code goes here...
-end
+require "blogdoor/command"
+require "blogdoor/builder"

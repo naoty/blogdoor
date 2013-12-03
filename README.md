@@ -10,5 +10,12 @@ $ gem install blogdoor
 
 ## Usage
 
-TODO: Write usage instructions here
+At your workspace, run `blogdoor start`.
+
+```sh
+$ cd path/to/workspace
+$ blogdoor start
+```
+
+This command builds HTML files from your posts written by markdown and `layout.erb`.
 
