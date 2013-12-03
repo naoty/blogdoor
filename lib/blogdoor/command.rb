@@ -6,6 +6,10 @@ module Blogdoor
     def start
       builder = Builder.new
       builder.build_all
+      watcher = Watcher.new
+      watcher.builder = builder
+      watcher.start
+      sleep
     end
   end
 end
