@@ -1,3 +1,5 @@
 require "blogdoor/command"
 require "blogdoor/builder"
 require "blogdoor/watcher"
+require "blogdoor/server"
+require "blogdoor/client"

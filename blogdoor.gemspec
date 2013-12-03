@@ -19,6 +19,8 @@ Gem::Specification.new do |spec|
   spec.add_dependency "thor"
   spec.add_dependency "redcarpet"
   spec.add_dependency "listen"
+  spec.add_dependency "sinatra"
+  spec.add_dependency "sinatra-websocket"
 
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"

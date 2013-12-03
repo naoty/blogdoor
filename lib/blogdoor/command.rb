@@ -1,4 +1,5 @@
 require "thor"
+require "rack"
 
 module Blogdoor
   class Command < Thor
@@ -9,7 +10,7 @@ module Blogdoor
       watcher = Watcher.new
       watcher.builder = builder
       watcher.start
-      sleep
+      Rack::Handler::Thin.run Server.new, Port: 5678
     end
   end
 end

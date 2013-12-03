@@ -22,4 +22,14 @@ describe Blogdoor::Builder do
       expect(builds_path.entries).to have_at_least(3).items
     end
   end
+
+  describe "#build" do
+    it "inserts script tags for livereload" do
+      builds_path.mkdir
+      builder.build(root_path.join("sample.md"))
+      html = builds_path.join("sample.html").read
+      expect(html).to include "jquery.js"
+      expect(html).to include "livereload.js"
+    end
+  end
 end
