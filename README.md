@@ -1,6 +1,6 @@
 # Blogdoor
 
-Blogdoor is a toolkit for easily publishing posts from local to your blog.
+Blogdoor is a toolkit for easily previewing posts.
 
 ## Installation
 
@@ -35,7 +35,7 @@ Below is the example of `layout.erb`. Feel free to customize it so that it looks
 <body>
   <article>
     <p class="when"><%= @created_at %></p>
-    <h1><%= @title %>
+    <h1><%= @title %></h1>
     <div class="article-body">
       <%= @content %>
     </div>

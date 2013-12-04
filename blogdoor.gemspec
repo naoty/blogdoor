@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = Blogdoor::VERSION
   spec.authors       = ["Naoto Kaneko"]
   spec.email         = ["naoty.k@gmail.com"]
-  spec.summary       = %q{Blogdoor is a toolkit for easily publishing posts from local to your blog.}
+  spec.summary       = %q{Blogdoor is a toolkit for easily previewing posts.}
   spec.homepage      = "https://github.com/naoty/blogdoor"
   spec.license       = "MIT"
 
