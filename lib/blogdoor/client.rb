@@ -2,10 +2,10 @@ require "net/http"
 
 module Blogdoor
   class Client
-    def send(content)
+    def notify
       begin
         client = Net::HTTP.new("localhost", 5678)
-        client.post("/", "content=#{content}")
+        client.post("/", "")
       rescue
       end
     end

@@ -30,7 +30,7 @@ module Blogdoor
       html = @layout.result(context.to_binding)
       html = insert_script_tags(html)
       html_path.open("wb") { |file| file.write(html) }
-      @client.send(content)
+      @client.notify
     end
 
     def insert_script_tags(html)
