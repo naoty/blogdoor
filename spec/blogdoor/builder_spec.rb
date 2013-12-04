@@ -24,11 +24,21 @@ describe Blogdoor::Builder do
   end
 
   describe "#build" do
-    it "inserts script tags for livereload" do
+    before(:each) do
       builds_path.mkdir
+    end
+
+    it "inserts script tags for livereload" do
       builder.build(root_path.join("sample.md"))
       html = builds_path.join("sample.html").read
       expect(html).to include "livereload.js"
+    end
+
+    it "ignores file path matched with ignore_patterns" do
+      builder.ignore_patterns = [/sample/]
+      builder.build(root_path.join("sample.md"))
+      html_path = builds_path.join("sample.html")
+      expect(html_path).not_to exist
     end
   end
 end

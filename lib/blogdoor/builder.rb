@@ -4,6 +4,8 @@ require "redcarpet"
 
 module Blogdoor
   class Builder
+    attr_accessor :ignore_patterns
+
     def initialize(args = {})
       @root_path = Pathname.new(args[:root_path] || ".")
       @builds_path = @root_path.join("builds")
@@ -12,6 +14,8 @@ module Blogdoor
       @layout = ERB.new(layout_path.read)
       @converter = Converter.new
       @client = Client.new
+
+      @ignore_patterns = (args[:ignore_patterns] || []).map { |pattern| /#{pattern}/ }
     end
 
     def build_all
@@ -22,6 +26,8 @@ module Blogdoor
     end
 
     def build(post_path)
+      return if @ignore_patterns.any? { |pattern| post_path.to_s =~ pattern }
+
       filename = post_path.basename(".md")
       html_path = @builds_path.join("#{filename}.html")
 
