@@ -36,7 +36,6 @@ module Blogdoor
     def insert_script_tags(html)
       javascripts_path = Pathname.new("../javascripts").expand_path(File.dirname(__FILE__))
       script_tags = []
-      script_tags << %(<script src="#{javascripts_path.join("jquery.js")}"></script>)
       script_tags << %(<script src="#{javascripts_path.join("livereload.js")}"></script>)
       html.gsub(/<\/head>/) { "#{script_tags.join("\n")}\n</head>"}
     end

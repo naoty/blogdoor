@@ -28,7 +28,6 @@ describe Blogdoor::Builder do
       builds_path.mkdir
       builder.build(root_path.join("sample.md"))
       html = builds_path.join("sample.html").read
-      expect(html).to include "jquery.js"
       expect(html).to include "livereload.js"
     end
   end
