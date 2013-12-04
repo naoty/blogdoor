@@ -10,7 +10,7 @@ module Blogdoor
 
       layout_path = Pathname.new(args[:layout_path] || "./layout.erb")
       @layout = ERB.new(layout_path.read)
-      @renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, fenced_code_blocks: true)
+      @converter = Converter.new
       @client = Client.new
     end
 
@@ -25,7 +25,7 @@ module Blogdoor
       filename = post_path.basename(".md")
       html_path = @builds_path.join("#{filename}.html")
 
-      content = @renderer.render(post_path.read)
+      content = @converter.convert(post_path.read)
       context = Context.new({ title: filename, created_at: post_path.mtime, content: content })
       html = @layout.result(context.to_binding)
       html = insert_script_tags(html)
