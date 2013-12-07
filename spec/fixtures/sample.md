@@ -14,3 +14,23 @@
 
 冬はつとめて。雪の降りたるはいふべきにもあらず。霜のいと白きも、またさらでも、いと寒きに、火などいそぎおこして、炭もてわたるもいとつきづきし。昼になりて、ぬるくゆるびもて行けば、火桶の火も白き灰がちになりてわろし。
 
+# Code sample
+
+```rb:greeter.rb
+class Greeter
+  def initialize(name)
+    @name = name.capitalize
+  end
+
+  def salute
+    puts "Hello #{@name}!"
+  end
+end
+
+# Create a new object
+g = Greeter.new("world")
+
+# Output "Hello World!"
+g.salute
+```
+
